@@ -1,0 +1,42 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Сайт-задание
+        link(rel="stylesheet", href="src/scss/style.scss")
+    body
+        input#menu-toggle(type="checkbox")
+
+        header.mobile-header
+            label.menu-btn(for="menu-toggle")
+                span
+                span
+                span
+            .logo
+
+        nav.sidebar
+            .menu-content
+                ul.menu
+                    each item in menuItems
+                        li= item
+
+        label.overlay(for="menu-toggle")
+
+        main.main
+            .cards-grid
+                each card, index in cards
+                    .card(class=`card-${index + 1}`)
+                        h3.card-title= card.title
+                        p.card-text= card.text
+
+        footer.footer
+            p © 2026 Все права защищены
+
+        script.
+            document.addEventListener('DOMContentLoaded', function() {
+                const toggle = document.getElementById('menu-toggle');
+                toggle.addEventListener('change', function() {
+                    document.body.classList.toggle('menu-open', this.checked);
+                });
+            });

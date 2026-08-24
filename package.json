@@ -1,0 +1,22 @@
+{
+  "name": "entrytestsite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/build-html.js",
+    "dev": "vite",
+    "prebuild": "node scripts/build-html.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && npx gh-pages -d dist -f"
+  },
+  "devDependencies": {
+    "@vituum/vite-plugin-pug": "^2.0.1",
+    "pug": "^3.0.4",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.103.1",
+    "vite": "^8.2.2",
+    "vite-plugin-gh-pages": "^1.0.1"
+  }
+}
